@@ -1,5 +1,5 @@
 ﻿using KnowledgeApi.Models;
-using static KnowledgeApi.Services.MongoRepository;
+
 
 namespace KnowledgeApi.Services
 {

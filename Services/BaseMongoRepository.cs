@@ -6,9 +6,6 @@ using System.Linq;
 
 namespace KnowledgeApi.Services
 {
-    public class MongoRepository
-    {
-
         public class BaseMongoRepository<TModel>
         where TModel : MongoBaseModel
         {
@@ -57,4 +54,4 @@ namespace KnowledgeApi.Services
         }
 
     }
-}
+

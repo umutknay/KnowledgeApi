@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using KnowledgeApi.Models;
+﻿using KnowledgeApi.Models;
+using KnowledgeApi.Services;
 using Microsoft.AspNetCore.Mvc;
-using static KnowledgeApi.Services.MongoRepository;
 
 namespace KnowledgeApi.Controllers
 {
