@@ -9,6 +9,7 @@ namespace KnowledgeApi.Controllers
     [ApiController]
     public class ArticleController :  BaseMongoController<Article>
     {
+        //test deneme
         public ArticleController(ArticleRepository articleRepository) : base(articleRepository)
         {
         }
