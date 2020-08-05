@@ -24,3 +24,4 @@ C:\KnowledgeApi\bin\Debug\netcoreapp3.1\MongoDB.Libmongocrypt.dll
 C:\KnowledgeApi\bin\Debug\netcoreapp3.1\SharpCompress.dll
 C:\KnowledgeApi\obj\Debug\netcoreapp3.1\KnowledgeApi.csproj.CopyComplete
 C:\KnowledgeApi\bin\Debug\netcoreapp3.1\MongoDB.Driver.dll
+C:\KnowledgeApi\obj\Debug\netcoreapp3.1\KnowledgeApi.csprojAssemblyReference.cache
