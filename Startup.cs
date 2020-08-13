@@ -25,7 +25,16 @@ namespace KnowledgeApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            string mongoConnectionString = this.Configuration.GetConnectionString("MongoConnectionString");
+
+                services.AddCors();
+                services.AddMvc();
+                services.AddCors(c =>
+                  {
+                    c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+
+                  });
+
+      string mongoConnectionString = this.Configuration.GetConnectionString("MongoConnectionString");
             services.AddTransient(s => new ArticleRepository(mongoConnectionString, "KnowledgeDb", "article"));
             services.AddTransient(s => new ArtTypeRepository(mongoConnectionString, "KnowledgeDb", "arttype"));
             services.AddControllers();
@@ -34,7 +43,15 @@ namespace KnowledgeApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+
+                    app.UseCors(bldr => bldr
+              .WithOrigins("http://localhost:8080")
+              .WithMethods("GET", "POST")
+              .AllowAnyHeader()
+              );
+
+
+      if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
