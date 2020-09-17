@@ -25,8 +25,8 @@ namespace KnowledgeApi.Services
 
             public virtual TModel GetById(string id)
             {
-                var docId = new ObjectId(id);
-                return mongoCollection.Find<TModel>(m => m._id == docId).FirstOrDefault();
+                //var docId = new ObjectId(id);
+                return mongoCollection.Find<TModel>(m => m.Id == id).FirstOrDefault();
             }
 
             public virtual TModel Create(TModel model)
@@ -37,19 +37,19 @@ namespace KnowledgeApi.Services
 
             public virtual void Update(string id, TModel model)
             {
-                var docId = new ObjectId(id);
-                mongoCollection.ReplaceOne(m => m._id == docId, model);
+                //var docId = new ObjectId(id);
+                mongoCollection.ReplaceOne(m => m.Id == id, model);
             }
 
             public virtual void Delete(TModel model)
             {
-                mongoCollection.DeleteOne(m => m._id == model._id);
+                mongoCollection.DeleteOne(m => m.Id == model.Id);
             }
 
             public virtual void Delete(string id)
             {
-                var docId = new ObjectId(id);
-                mongoCollection.DeleteOne(m => m._id == docId);
+                //var docId = new ObjectId(id);
+                mongoCollection.DeleteOne(m => m.Id == id);
             }
         }
 

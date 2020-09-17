@@ -35,8 +35,8 @@ namespace KnowledgeApi
                   });
 
       string mongoConnectionString = this.Configuration.GetConnectionString("MongoConnectionString");
-            services.AddTransient(s => new ArticleRepository(mongoConnectionString, "KnowledgeDb", "article"));
-            services.AddTransient(s => new ArtTypeRepository(mongoConnectionString, "KnowledgeDb", "arttype"));
+            services.AddTransient(s => new ArticleRepository(mongoConnectionString, "knowledgedb", "article"));
+            services.AddTransient(s => new ArtTypeRepository(mongoConnectionString, "knowledgedb", "arttype"));
             services.AddControllers();
         }
 
@@ -46,7 +46,7 @@ namespace KnowledgeApi
 
                     app.UseCors(bldr => bldr
               .WithOrigins("http://localhost:8080")
-              .WithMethods("GET", "POST")
+              .WithMethods("GET", "POST","PUT","DELETE")
               .AllowAnyHeader()
               );
 

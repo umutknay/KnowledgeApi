@@ -24,7 +24,6 @@ C:\KnowledgeApi\bin\Debug\netcoreapp3.1\MongoDB.Libmongocrypt.dll
 C:\KnowledgeApi\bin\Debug\netcoreapp3.1\SharpCompress.dll
 C:\KnowledgeApi\obj\Debug\netcoreapp3.1\KnowledgeApi.csproj.CopyComplete
 C:\KnowledgeApi\bin\Debug\netcoreapp3.1\MongoDB.Driver.dll
-C:\KnowledgeApi\obj\Debug\netcoreapp3.1\KnowledgeApi.csprojAssemblyReference.cache
 C:\Users\Administrator\source\repos\KnowledgeApi\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Administrator\source\repos\KnowledgeApi\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Administrator\source\repos\KnowledgeApi\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -51,3 +50,4 @@ C:\Users\Administrator\source\repos\KnowledgeApi\obj\Debug\netcoreapp3.1\staticw
 C:\Users\Administrator\source\repos\KnowledgeApi\obj\Debug\netcoreapp3.1\KnowledgeApi.dll
 C:\Users\Administrator\source\repos\KnowledgeApi\obj\Debug\netcoreapp3.1\KnowledgeApi.pdb
 C:\Users\Administrator\source\repos\KnowledgeApi\obj\Debug\netcoreapp3.1\KnowledgeApi.genruntimeconfig.cache
+C:\KnowledgeApi\obj\Debug\netcoreapp3.1\KnowledgeApi.csprojAssemblyReference.cache

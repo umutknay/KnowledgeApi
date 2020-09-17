@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrator\\source\\repos\\KnowledgeApi\\KnowledgeApi.csproj": {}
+    "C:\\KnowledgeApi\\KnowledgeApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrator\\source\\repos\\KnowledgeApi\\KnowledgeApi.csproj": {
+    "C:\\KnowledgeApi\\KnowledgeApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\KnowledgeApi\\KnowledgeApi.csproj",
+        "projectUniqueName": "C:\\KnowledgeApi\\KnowledgeApi.csproj",
         "projectName": "KnowledgeApi",
-        "projectPath": "C:\\Users\\Administrator\\source\\repos\\KnowledgeApi\\KnowledgeApi.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\source\\repos\\KnowledgeApi\\obj\\",
+        "projectPath": "C:\\KnowledgeApi\\KnowledgeApi.csproj",
+        "packagesPath": "C:\\Users\\oncell\\.nuget\\packages\\",
+        "outputPath": "C:\\KnowledgeApi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\oncell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -69,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
