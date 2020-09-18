@@ -33,9 +33,9 @@ namespace KnowledgeApi.Controllers
         }
 
         [HttpPut]
-        public virtual ActionResult UpdateModel(string id, TModel model)
+        public virtual ActionResult UpdateModel( TModel model)
         {
-            this.BaseMongoRepository.Update(id, model);
+            this.BaseMongoRepository.Update( model);
             return Ok();
         }
 

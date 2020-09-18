@@ -35,10 +35,10 @@ namespace KnowledgeApi.Services
                 return model;
             }
 
-            public virtual void Update(string id, TModel model)
+            public virtual void Update( TModel model)
             {
                 //var docId = new ObjectId(id);
-                mongoCollection.ReplaceOne(m => m.Id == id, model);
+                mongoCollection.ReplaceOne(m => m.Id == model.Id, model);
             }
 
             public virtual void Delete(TModel model)
