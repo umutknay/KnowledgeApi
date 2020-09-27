@@ -13,5 +13,7 @@ namespace KnowledgeApi.Controllers
         public ArticleController(ArticleRepository articleRepository) : base(articleRepository)
         {
         }
+
+
     }
 }

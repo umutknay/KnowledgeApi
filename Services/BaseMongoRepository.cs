@@ -3,6 +3,7 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace KnowledgeApi.Services
 {
@@ -18,38 +19,39 @@ namespace KnowledgeApi.Services
                 mongoCollection = database.GetCollection<TModel>(collectionName);
             }
 
-            public virtual List<TModel> GetList()
+            public virtual async Task<List<TModel>> GetList()
             {
-                return mongoCollection.Find(book => true).ToList();
+                return await mongoCollection.Find(book => true).ToListAsync();
             }
+        
 
-            public virtual TModel GetById(string id)
+            public virtual async Task<TModel> GetById(string id)
             {
                 //var docId = new ObjectId(id);
-                return mongoCollection.Find<TModel>(m => m.Id == id).FirstOrDefault();
+                return await mongoCollection.Find<TModel>(m => m.Id == id).FirstOrDefaultAsync();
             }
 
-            public virtual TModel Create(TModel model)
+            public virtual async Task<TModel> Create(TModel model)
             {
-                mongoCollection.InsertOne(model);
+                await mongoCollection.InsertOneAsync(model);
                 return model;
             }
-
-            public virtual void Update( TModel model)
+        
+            public virtual async Task Update( TModel model)
             {
                 //var docId = new ObjectId(id);
-                mongoCollection.ReplaceOne(m => m.Id == model.Id, model);
+                await mongoCollection.ReplaceOneAsync(m => m.Id == model.Id, model);
             }
 
-            public virtual void Delete(TModel model)
+            public virtual async Task Delete(TModel model)
             {
-                mongoCollection.DeleteOne(m => m.Id == model.Id);
+               await mongoCollection.DeleteOneAsync(m => m.Id == model.Id);
             }
 
-            public virtual void Delete(string id)
+            public virtual async Task Delete(string id)
             {
                 //var docId = new ObjectId(id);
-                mongoCollection.DeleteOne(m => m.Id == id);
+                await mongoCollection.DeleteOneAsync(m => m.Id == id);
             }
         }
 

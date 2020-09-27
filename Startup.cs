@@ -34,9 +34,10 @@ namespace KnowledgeApi
 
                   });
 
-      string mongoConnectionString = this.Configuration.GetConnectionString("MongoConnectionString");
+             string mongoConnectionString = this.Configuration.GetConnectionString("MongoConnectionString");
             services.AddTransient(s => new ArticleRepository(mongoConnectionString, "knowledgedb", "article"));
             services.AddTransient(s => new ArtTypeRepository(mongoConnectionString, "knowledgedb", "arttype"));
+            services.AddTransient(s => new ArticleCustomService(mongoConnectionString, "knowledgedb", "article"));
             services.AddControllers();
         }
 
@@ -44,14 +45,16 @@ namespace KnowledgeApi
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
-                    app.UseCors(bldr => bldr
-              .WithOrigins("http://localhost:8080")
-              .WithMethods("GET", "POST","PUT","DELETE")
-              .AllowAnyHeader()
-              );
+            app.UseCors(bldr => bldr
+           .WithOrigins("http://okipu.net","http://localhost:8080")
+           //.AllowAnyOrigin()
+           .WithMethods("GET", "POST", "PUT", "DELETE")
+           .AllowAnyHeader()
+           //.AllowAnyMethod()
+           );
 
 
-      if (env.IsDevelopment())
+            if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }

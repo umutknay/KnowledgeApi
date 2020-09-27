@@ -1,6 +1,8 @@
 ﻿using KnowledgeApi.Models;
 using KnowledgeApi.Services;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
 namespace KnowledgeApi.Controllers
 {
@@ -15,34 +17,34 @@ namespace KnowledgeApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public virtual ActionResult GetModel(string id)
+        public virtual async Task<ActionResult> GetModel(string id)
         {
-            return Ok(this.BaseMongoRepository.GetById(id));
+            return Ok(await this.BaseMongoRepository.GetById(id));
         }
 
         [HttpGet]
-        public virtual ActionResult GetModelList()
+        public virtual async Task<ActionResult> GetModelList()
         {
-            return Ok(this.BaseMongoRepository.GetList());
+            return Ok(await this.BaseMongoRepository.GetList());
         }
 
         [HttpPost]
-        public virtual ActionResult AddModel(TModel model)
+        public virtual async Task<ActionResult> AddModel(TModel model)
         {
-            return Ok(this.BaseMongoRepository.Create(model));
+            return Ok(await this.BaseMongoRepository.Create(model));
         }
 
         [HttpPut]
-        public virtual ActionResult UpdateModel( TModel model)
+        public virtual async Task<ActionResult> UpdateModel( TModel model)
         {
-            this.BaseMongoRepository.Update( model);
+            await this.BaseMongoRepository.Update(model);
             return Ok();
         }
 
         [HttpDelete("{id}")]
-        public virtual void DeleteModel(string id)
+        public virtual async Task DeleteModel(string id)
         {
-            this.BaseMongoRepository.Delete(id);
+           await this.BaseMongoRepository.Delete(id);
         }
     }
 }
