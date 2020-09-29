@@ -10,7 +10,7 @@ namespace KnowledgeApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ArticleCustomController : ControllerBase
+    public class ArticleCustomController : Controller
     {
 
         private readonly ArticleCustomService _articleService;
@@ -19,11 +19,11 @@ namespace KnowledgeApi.Controllers
             _articleService = articleService;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Article>>> GetAll()
+        [HttpGet("GetAll")]
+        public async Task<ActionResult> GetAll()
         {
-            var students = await _articleService.GetTopTen(10);
-            return Ok(students);
+            var articles = await _articleService.GetTopTakeArticles(2);
+            return Ok(articles);
         }
     }
 }

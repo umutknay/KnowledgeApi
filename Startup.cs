@@ -1,15 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using KnowledgeApi.Models;
 using KnowledgeApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace KnowledgeApi
 {
@@ -26,18 +22,22 @@ namespace KnowledgeApi
         public void ConfigureServices(IServiceCollection services)
         {
 
-                services.AddCors();
-                services.AddMvc();
-                services.AddCors(c =>
-                  {
-                    c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            services.AddCors();
+            services.AddMvc();
+            services.AddCors(c =>
+                {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
 
-                  });
+                });
 
-             string mongoConnectionString = this.Configuration.GetConnectionString("MongoConnectionString");
-            services.AddTransient(s => new ArticleRepository(mongoConnectionString, "knowledgedb", "article"));
-            services.AddTransient(s => new ArtTypeRepository(mongoConnectionString, "knowledgedb", "arttype"));
-            services.AddTransient(s => new ArticleCustomService(mongoConnectionString, "knowledgedb", "article"));
+            string mongoConnectionString = this.Configuration.GetConnectionString("MongoConnectionString");
+            services.AddTransient(s => new ArticleRepository(mongoConnectionString, "knowledgedb", "articles"));
+            services.AddTransient(s => new ArtTypeRepository(mongoConnectionString, "knowledgedb", "arttypes"));
+
+           // services.AddTransient(s => new ArticleCustomService(mongoConnectionString, "knowledgedb", "articles"));
+            services.Configure<DatabaseSettings>(Configuration.GetSection(nameof(DatabaseSettings)));
+            services.AddSingleton<IDatabaseSettings>(sp => sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
+            services.AddSingleton<ArticleCustomService>();
             services.AddControllers();
         }
 
