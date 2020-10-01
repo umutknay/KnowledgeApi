@@ -30,6 +30,6 @@ namespace KnowledgeApi.Models
         public string Dates { get; set; }
 
         [BsonElement("arttypedetail")]
-        public IList<ArtType> ArttypeGroup { get; set; }
+        public IList<ArtType> ArttypeDetail { get; set; }
     }
 }

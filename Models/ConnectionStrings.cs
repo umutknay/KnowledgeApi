@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace KnowledgeApi.Models
 {
-    public class DatabaseSettings: IDatabaseSettings
+    public class ConnectionStrings: IDatabaseSettings
     {
         //public string CollectionName { get; set; }
         public string MongoConnectionString { get; set; }

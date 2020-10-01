@@ -50,5 +50,11 @@ namespace KnowledgeApi.Services
 
         }
 
+        public virtual async Task<Article> Create(Article model)
+        {
+            await _article.InsertOneAsync(model);
+            return model;
+        }
+
     }
 }

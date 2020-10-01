@@ -35,10 +35,10 @@ namespace KnowledgeApi
             services.AddTransient(s => new ArtTypeRepository(mongoConnectionString, "knowledgedb", "arttypes"));
 
            // services.AddTransient(s => new ArticleCustomService(mongoConnectionString, "knowledgedb", "articles"));
-            services.Configure<DatabaseSettings>(Configuration.GetSection(nameof(DatabaseSettings)));
-            services.AddSingleton<IDatabaseSettings>(sp => sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
-            services.AddSingleton<ArticleCustomService>();
-            services.AddControllers();
+            //services.Configure<ConnectionSettings>(Configuration.GetSection(nameof(ConnectionSettings)));
+            //services.AddSingleton<IDatabaseSettings>(sp => sp.GetRequiredService<IOptions<ConnectionSettings>>().Value);
+            //services.AddSingleton<ArticleCustomService>();
+            //services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

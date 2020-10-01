@@ -25,5 +25,11 @@ namespace KnowledgeApi.Controllers
             var articles = await _articleService.GetTopTakeArticles(2);
             return Ok(articles);
         }
+
+        [HttpPost("AddModel")]
+        public virtual async Task<ActionResult> AddModel(Article model)
+        {
+            return Ok(await this._articleService.Create(model));
+        }
     }
 }

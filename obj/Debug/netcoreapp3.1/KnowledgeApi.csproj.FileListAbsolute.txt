@@ -50,4 +50,3 @@ C:\Users\Administrator\source\repos\KnowledgeApi\obj\Debug\netcoreapp3.1\staticw
 C:\Users\Administrator\source\repos\KnowledgeApi\obj\Debug\netcoreapp3.1\KnowledgeApi.dll
 C:\Users\Administrator\source\repos\KnowledgeApi\obj\Debug\netcoreapp3.1\KnowledgeApi.pdb
 C:\Users\Administrator\source\repos\KnowledgeApi\obj\Debug\netcoreapp3.1\KnowledgeApi.genruntimeconfig.cache
-C:\KnowledgeApi\obj\Debug\netcoreapp3.1\KnowledgeApi.csprojAssemblyReference.cache
