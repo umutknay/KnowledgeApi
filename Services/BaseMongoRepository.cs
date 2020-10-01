@@ -1,5 +1,6 @@
 ﻿using KnowledgeApi.Models;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization.IdGenerators;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +37,16 @@ namespace KnowledgeApi.Services
                 await mongoCollection.InsertOneAsync(model);
                 return model;
             }
-        
+            public virtual async Task<TModel> CreateNested(TModel model, TModel NModel)
+            {
+                await mongoCollection.InsertOneAsync(model);
+            //string Id = mongoCollection.FindAsync(x => x.Id == model.Id).Id.ToString();
+                await mongoCollection.ReplaceOneAsync(m => m.Id == model.Id, NModel);
+                
+                
+                return model;
+            }
+
             public virtual async Task Update( TModel model)
             {
                 //var docId = new ObjectId(id);

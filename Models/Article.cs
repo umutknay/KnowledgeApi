@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
+using System.Collections.Generic;
 
 namespace KnowledgeApi.Models
 {
@@ -27,5 +28,8 @@ namespace KnowledgeApi.Models
 
         [BsonElement("dates")]
         public string Dates { get; set; }
+
+        [BsonElement("arttypedetail")]
+        public IList<ArtType> ArttypeGroup { get; set; }
     }
 }
