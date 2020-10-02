@@ -6129,7 +6129,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\oncell\\.nuget\\packages\\": {},
+    "C:\\Users\\onsel.aydin\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -6138,20 +6138,22 @@
       "projectUniqueName": "C:\\KnowledgeApi\\KnowledgeApi.csproj",
       "projectName": "KnowledgeApi",
       "projectPath": "C:\\KnowledgeApi\\KnowledgeApi.csproj",
-      "packagesPath": "C:\\Users\\oncell\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\onsel.aydin\\.nuget\\packages\\",
       "outputPath": "C:\\KnowledgeApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\oncell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\onsel.aydin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.1.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\DevExpress 18.1\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -6200,7 +6202,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

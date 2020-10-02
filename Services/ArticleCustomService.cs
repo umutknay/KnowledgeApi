@@ -24,25 +24,25 @@ namespace KnowledgeApi.Services
 
         public async Task<List<Article>> GetTopTakeArticles(int TakeValue)
         {
-            var articles = await _article.AsQueryable().OrderByDescending(x => x.Id).Take(TakeValue).ToListAsync();
+            //var articles = await _article.AsQueryable().OrderByDescending(x => x.Id).Take(TakeValue).ToListAsync();
             //return await _article.Find(x => true).SortByDescending(x => x.Dates).Limit(limit).ToListAsync();
-            //var articles = await (from a in _article.AsQueryable()
-            //                      join t in _articletype.AsQueryable() on a.ArticleType equals t.Id
-            //                      select new Article
-            //                      {
-            //                          Id = a.Id,
-            //                          Title = a.Title,
-            //                          Content = a.Content,
-            //                          Description = a.Description,
-            //                          Topics = a.Topics,
-            //                          Url = a.Url,
-            //                          ArticleType = t.Title,
-            //                          Image = a.Image,
-            //                          Dates = a.Dates
-            //                      })
-            //                .OrderByDescending(o => o.Dates)
-            //                .Take(TakeValue)
-            //                .ToListAsync();
+            var articles = await (from a in _article.AsQueryable()
+                                  //join t in _articletype.AsQueryable() on a.ArticleType equals t.Id into j
+                                  select new Article
+                                  {
+                                      Id = a.Id,
+                                      Title = a.Title,
+                                      Content = a.Content,
+                                      Description = a.Description,
+                                      Topics = a.Topics,
+                                      Url = a.Url,
+                                      ArticleType = a.ArttypeDetail.First().Title,
+                                      Image = a.Image,
+                                      Dates = a.Dates
+                                  })
+                            .OrderByDescending(o => o.Dates)
+                            .Take(TakeValue)
+                            .ToListAsync();
 
             // var articles = from a in _article.AsQueryable<Article>() select a;
             // var arttype = await _articletype.AsQueryable().OrderByDescending(x => x.Id).ToListAsync();
