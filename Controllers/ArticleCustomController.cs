@@ -22,7 +22,7 @@ namespace KnowledgeApi.Controllers
         [HttpGet("GetAll")]
         public async Task<ActionResult> GetAll()
         {
-            var articles = await _articleService.GetTopTakeArticles(2);
+            var articles = await _articleService.GetTopTakeArticles(5);
             return Ok(articles);
         }
 
@@ -30,6 +30,12 @@ namespace KnowledgeApi.Controllers
         public virtual async Task<ActionResult> AddModel(Article model)
         {
             return Ok(await this._articleService.Create(model));
+        }
+        [HttpGet("FindArticle")]  ///{ArticleName}
+        //[Route("FindArticle/{ArticleName}")]
+        public virtual async Task<ActionResult> FindArticle(string ArticleName)
+        {
+            return Ok(await this._articleService.FindArticle(ArticleName));
         }
     }
 }

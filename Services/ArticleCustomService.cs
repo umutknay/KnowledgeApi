@@ -12,14 +12,14 @@ namespace KnowledgeApi.Services
     public class ArticleCustomService
     {
         private readonly IMongoCollection<Article> _article;
-        private readonly IMongoCollection<ArtType> _articletype;
+        //private readonly IMongoCollection<ArtType> _articletype;
         public ArticleCustomService(IDatabaseSettings settings)
         {
             var client = new MongoClient(settings.MongoConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
             _article = database.GetCollection<Article>("articles");
-            _articletype = database.GetCollection<ArtType>("arttypes");
+           // _articletype = database.GetCollection<ArtType>("arttypes");
         }
 
         public async Task<List<Article>> GetTopTakeArticles(int TakeValue)
@@ -48,6 +48,24 @@ namespace KnowledgeApi.Services
             // var arttype = await _articletype.AsQueryable().OrderByDescending(x => x.Id).ToListAsync();
             return articles;
 
+        }
+        public async Task <List<Article>> FindArticle(string ArticleName)
+        {
+            var article = await (from a in _article.AsQueryable()
+                                 .Where(x => x.Title.ToLower().Contains(ArticleName))
+                                 select new Article
+                                 {
+                                     Id = a.Id,
+                                     Title = a.Title,
+                                     Content = a.Content,
+                                     Description = a.Description,
+                                     Topics = a.Topics,
+                                     Url = a.Url,
+                                     ArticleType = a.ArttypeDetail.First().Title,
+                                     Image = a.Image,
+                                     Dates = a.Dates
+                                 }).ToListAsync();
+            return article;
         }
 
         public virtual async Task<Article> Create(Article model)
